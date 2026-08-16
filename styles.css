@@ -957,3 +957,34 @@ body {
     flex: none;
   }
 }
+
+/* ==========================================================================
+   FORM INTERACTION STATES (Injected via JS)
+   ========================================================================== */
+
+/* Error state for invalid phone numbers */
+.hero__form-input.is-invalid {
+  border-color: #ff4d4d; /* High-contrast error red */
+  color: #ff4d4d;
+}
+
+.hero__form-input.is-invalid:focus {
+  box-shadow: 0 0 0 1px #ff4d4d;
+}
+
+/* Success state replacement block */
+.form-success {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  padding: var(--space-sm);
+  background: var(--glass-bg-raised);
+  border: 1px solid var(--color-border-accent);
+  border-radius: var(--radius-sm);
+  animation: fade-in var(--duration-base) var(--ease-out);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
