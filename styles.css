@@ -762,3 +762,7 @@ body {
     padding-bottom: 0;
   }
 }
+
+body {
+  padding-bottom: calc(48px + (2 * var(--space-xs)) + 1px + env(safe-area-inset-bottom));
+}
