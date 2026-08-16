@@ -763,6 +763,197 @@ body {
   }
 }
 
-body {
-  padding-bottom: calc(48px + (2 * var(--space-xs)) + 1px + env(safe-area-inset-bottom));
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+
+/* ---- 1. Base layout ---- */
+
+.hero {
+  padding-block: var(--space-3xl) var(--space-2xl);
+  background: linear-gradient(180deg, var(--color-bg-void) 0%, var(--color-bg-surface) 100%);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+}
+
+/* ---- 2. Typography & micro-badge ---- */
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  padding: var(--space-3xs) var(--space-sm);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.status-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-volt);
+  animation: hero-status-pulse 2s var(--ease-in-out) infinite;
+}
+
+/* No existing duration token fits a slow ambient pulse (they're all sized
+   for interaction feedback), so 2s is a deliberate one-off here. */
+@keyframes hero-status-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: var(--shadow-glow-volt);
+  }
+}
+
+#hero-title {
+  font-size: var(--text-hero);
+  font-family: var(--font-display);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+}
+
+.hero__title-accent {
+  color: var(--color-volt);
+}
+
+.hero__lede {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  max-width: 45ch;
+}
+
+/* ---- 3. Lead capture form ---- */
+
+.hero__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+  max-width: 400px;
+  margin-top: var(--space-sm);
+}
+
+.hero__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.hero__form-input {
+  height: 56px;
+  padding: 0 var(--space-sm);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  font-size: var(--text-base);
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.hero__form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.hero__form-input:focus {
+  border-color: var(--color-volt);
+}
+
+.hero__form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  height: 56px;
+  padding-inline: var(--space-md);
+  background: var(--color-volt);
+  color: var(--color-text-on-accent);
+  font-weight: var(--weight-bold);
+  border-radius: var(--radius-sm);
+  transition: transform var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.hero__form-icon {
+  flex-shrink: 0;
+}
+
+.hero__form-submit:hover,
+.hero__form-submit:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow-volt);
+}
+
+.hero__form-trust {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  margin-top: var(--space-2xs);
+}
+
+/* ---- 4. Trust metric strip ---- */
+
+.hero__stats {
+  width: 100%;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.hero__stats-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+
+.hero__stats-list dt {
+  font-size: var(--text-xl);
+  font-family: var(--font-display);
+  color: var(--color-text-primary);
+}
+
+.hero__stats-list dd {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot {
+    animation: none;
+  }
+}
+
+/* ---- 5. Desktop breakpoint ---- */
+
+@media (min-width: 768px) {
+  .hero__inner {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .hero__form-group {
+    flex-direction: row;
+  }
+
+  .hero__form-input {
+    flex: 1;
+  }
+
+  .hero__form-submit {
+    flex: none;
+  }
 }
