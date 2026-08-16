@@ -113,3 +113,64 @@
     }
   });
 })();
+
+/**
+ * Peak Performance Gym — Hero Lead Capture Form
+ * ---------------------------------------------------------------------------
+ * Handles the phone-number form in the hero (.hero__form): prevents the
+ * native submit, runs a light client-side validation pass, and simulates
+ * a submission before swapping the form for a success message.
+ */
+(() => {
+  'use strict';
+
+  const form = document.querySelector('.hero__form');
+  if (!form) return;
+
+  const input = form.querySelector('.hero__form-input');
+  const submitButton = form.querySelector('.hero__form-submit');
+  if (!input || !submitButton) return;
+
+  const MIN_DIGITS = 10;
+  const SIMULATED_DELAY_MS = 600;
+
+  const isValidPhone = (value) => value.replace(/\D/g, '').length >= MIN_DIGITS;
+
+  const markInvalid = () => {
+    input.classList.add('is-invalid');
+    input.setAttribute('aria-invalid', 'true');
+  };
+
+  const clearInvalid = () => {
+    input.classList.remove('is-invalid');
+    input.removeAttribute('aria-invalid');
+  };
+
+  const showSuccess = () => {
+    form.innerHTML = `
+      <div class="form-success" role="status">
+        <p class="text-volt">✓ Pass Reserved!</p>
+        <small>Check your SMS for your instant access pass.</small>
+      </div>
+    `;
+  };
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    if (!isValidPhone(input.value)) {
+      markInvalid();
+      return;
+    }
+
+    clearInvalid();
+    submitButton.disabled = true;
+    submitButton.textContent = 'Claiming...';
+
+    window.setTimeout(showSuccess, SIMULATED_DELAY_MS);
+  });
+
+  // Clear the error state as soon as the person starts correcting it, rather
+  // than leaving a stale .is-invalid border after a failed attempt.
+  input.addEventListener('input', clearInvalid);
+})();
