@@ -988,3 +988,160 @@ body {
   from { opacity: 0; transform: translateY(5px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================================================
+   FACILITY SECTION — Bento Grid
+   ========================================================================== */
+
+/* ---- 1. Section layout ---- */
+
+/* Targets .section-padding rather than .facility: the section carries both
+   classes, and .section-padding is the reusable spacing hook meant for
+   other sections too — scoping it to .facility would strand it there. */
+.section-padding {
+  padding-block: var(--space-3xl) var(--space-2xl);
+}
+
+/* Not in the spec, but .facility__inner has no layout rules anywhere yet,
+   so without this, .section-header and .bento-grid stack with zero gap
+   between them (the global reset zeroes all margins). */
+.facility__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-xs);
+}
+
+.section-lede {
+  max-width: 50ch;
+  color: var(--color-text-muted);
+}
+
+/* .eyebrow and .section-title (h2) are already styled by existing global
+   rules — no redefinition needed here. */
+
+/* ---- 2. Bento grid mechanics (mobile-first) ---- */
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 280px;
+  }
+
+  /* Base span declared before the modifiers so --featured/--wide (equal
+     specificity, one class each) correctly win the cascade for the cards
+     that carry both classes. */
+  .bento-card {
+    grid-column: span 1;
+  }
+
+  .bento-card--featured {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .bento-card--wide {
+    grid-column: span 2;
+  }
+
+  .section-header {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* ---- 3. Card styling & micro-interactions ---- */
+
+.bento-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-surface);
+  transition: border-color var(--duration-base) var(--ease-out);
+}
+
+/* Mobile-only floor height for the featured card; once grid-auto-rows +
+   row-span take over at desktop, the stretched grid area already exceeds
+   this, so it becomes a no-op without needing a reset in the media query. */
+.bento-card--featured {
+  min-height: 380px;
+}
+
+.bento-card:hover,
+.bento-card:focus-within {
+  border-color: var(--color-border-accent);
+}
+
+.bento-card__img-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bento-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.bento-card:hover .bento-card__img,
+.bento-card:focus-within .bento-card__img {
+  transform: scale(1.05);
+}
+
+/* Gradient overlay layered via ::after — the HTML has no dedicated element
+   for it, and this step can't add one. Sits above the image (z-index: 0)
+   and below the content (z-index: 2). */
+.bento-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 12, 0.95) 0%,
+    rgba(10, 10, 12, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+.bento-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: var(--space-md);
+}
+
+/* ---- 4. Accessibility ---- */
+
+@media (prefers-reduced-motion: reduce) {
+  .bento-card__img {
+    transition: none;
+  }
+
+  .bento-card:hover .bento-card__img,
+  .bento-card:focus-within .bento-card__img {
+    transform: none;
+  }
+}
