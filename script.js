@@ -74,7 +74,8 @@
 
   // Minimal focus trap: keep Tab / Shift+Tab cycling within the open drawer.
   function trapFocus(event) {
-    var focusable = nav.querySelectorAll(FOCUSABLE_SELECTOR);
+    const focusable = Array.from(nav.querySelectorAll(FOCUSABLE_SELECTOR));
+focusable.unshift(toggle); // This forces the close button into the trap!
     if (focusable.length === 0) return;
 
     var first = focusable[0];
@@ -147,13 +148,15 @@
   };
 
   const showSuccess = () => {
-    form.innerHTML = `
-      <div class="form-success" role="status">
-        <p class="text-volt">✓ Pass Reserved!</p>
-        <small>Check your SMS for your instant access pass.</small>
-      </div>
-    `;
-  };
+  form.innerHTML = `
+    <div class="form-success" role="status" tabindex="-1" id="form-success-msg">
+      <p class="text-volt">✓ Pass Reserved!</p>
+      <small>Check your SMS for your instant access pass.</small>
+    </div>
+  `;
+  // Force the browser to focus on the new message so screen readers announce it
+  document.getElementById('form-success-msg').focus();
+};
 
   form.addEventListener('submit', (event) => {
     event.preventDefault();
