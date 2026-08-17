@@ -68,7 +68,7 @@
 
     <p class="hero__lede">Custom-engineered equipment, expert coaching, and a high-energy environment built for serious results. No contracts. No excuses.</p>
 
-    <form class="hero__form" aria-label="Claim Free 3-Day Pass">
+    <form class="hero__form" aria-label="Claim Free 3-Day Pass" action="#" method="POST">
       <div class="hero__form-group">
         <label for="hero-phone" class="visually-hidden">Enter your phone number</label>
         <input
@@ -123,14 +123,14 @@
     </div>
 
     <div class="facility__filters" aria-label="Facility categories">
-  <button type="button" class="is-active" data-filter="all" aria-pressed="true">All</button>
-  <button type="button" data-filter="training" aria-pressed="false">Training</button>
-  <button type="button" data-filter="recovery" aria-pressed="false">Recovery</button>
+  <button type="button" class="is-active" data-filter="all" aria-pressed="true" aria-controls="facility-grid">All</button>
+  <button type="button" data-filter="training" aria-pressed="false" aria-controls="facility-grid">Training</button>
+  <button type="button" data-filter="recovery" aria-pressed="false" aria-controls="facility-grid">Recovery</button>
 </div>
 
-    <div class="bento-grid">
+    <div class="bento-grid" id="facility-grid">
 
-      <article class="bento-card bento-card--featured">
+      <article class="bento-card bento-card--featured" data-category="training">
         <div class="bento-card__img-wrapper">
           <img src="/api/placeholder/600/400" alt="Heavy deadlift platform with calibrated plates" class="bento-card__img" loading="lazy" width="600" height="400">
         </div>
@@ -140,9 +140,9 @@
         </div>
       </article>
 
-      <article class="bento-card">
+      <article class="bento-card" data-category="training">
         <div class="bento-card__img-wrapper">
-          <img src="/api/placeholder/600/400" alt="Green indoor turf track with a prowler sled" class="bento-card__img" loading="lazy" width="600" height="400">
+          <img src="/api/placeholder/600/400" alt="Green indoor turf track with a prowler sled" class="bento-card__img" loading="lazy" decoding="async" width="600" height="400">
         </div>
         <div class="bento-card__content">
           <h3>Functional Turf</h3>
@@ -150,9 +150,9 @@
         </div>
       </article>
 
-      <article class="bento-card">
+      <article class="bento-card" data-category="recovery">
         <div class="bento-card__img-wrapper">
-          <img src="/api/placeholder/600/400" alt="Modern cold plunge tub and wooden sauna" class="bento-card__img" loading="lazy" width="600" height="400">
+          <img src="/api/placeholder/600/400" alt="Modern cold plunge tub and wooden sauna" class="bento-card__img" loading="lazy" decoding="async" width="600" height="400">
         </div>
         <div class="bento-card__content">
           <h3>Recovery Zone</h3>
@@ -160,9 +160,9 @@
         </div>
       </article>
 
-      <article class="bento-card bento-card--wide">
+      <article class="bento-card bento-card--wide" data-category="training">
         <div class="bento-card__img-wrapper">
-          <img src="/api/placeholder/600/400" alt="Wide angle view of spaced out squat racks" class="bento-card__img" loading="lazy" width="600" height="400">
+          <img src="/api/placeholder/600/400" alt="Wide angle view of spaced out squat racks" class="bento-card__img" loading="lazy" decoding="async" width="600" height="400">
         </div>
         <div class="bento-card__content">
           <h3>Unrestricted Flow</h3>
