@@ -14,16 +14,16 @@
 (function () {
   'use strict';
 
-  var toggle = document.getElementById('nav-toggle');
-  var nav = document.getElementById('mobile-menu');
-  var body = document.body;
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('mobile-menu');
+  const body = document.body;
 
   if (!toggle || !nav) return;
 
   // Keep in sync with the @media (min-width: 768px) breakpoint in styles.css.
-  var desktopQuery = window.matchMedia('(min-width: 768px)');
+  const desktopQuery = window.matchMedia('(min-width: 768px)');
 
-  var FOCUSABLE_SELECTOR =
+  const FOCUSABLE_SELECTOR =
     'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
   function isOpen() {
@@ -35,7 +35,7 @@
     toggle.setAttribute('aria-label', 'Close navigation menu');
     body.classList.add('no-scroll');
 
-    var firstFocusable = nav.querySelector(FOCUSABLE_SELECTOR);
+    const firstFocusable = nav.querySelector(FOCUSABLE_SELECTOR);
     if (firstFocusable) firstFocusable.focus();
 
     document.addEventListener('keydown', onKeydown);
@@ -43,7 +43,7 @@
   }
 
   function closeMenu(options) {
-    var returnFocus = !options || options.returnFocus !== false;
+    const returnFocus = !options || options.returnFocus !== false;
 
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Open navigation menu');
@@ -78,8 +78,8 @@
 focusable.unshift(toggle); // This forces the close button into the trap!
     if (focusable.length === 0) return;
 
-    var first = focusable[0];
-    var last = focusable[focusable.length - 1];
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
 
     if (event.shiftKey && document.activeElement === first) {
       event.preventDefault();
