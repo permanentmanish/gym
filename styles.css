@@ -1145,5 +1145,44 @@ body {
     transform: none;
   }
 }
-/* ---- UPDATES ---- */
 
+/* ==========================================================================
+   FACILITY VIBE FILTER
+   ========================================================================== */
+
+.facility__filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.facility__filters button {
+  padding: var(--space-2xs) var(--space-md);
+  background: transparent;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  transition: background-color var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
+}
+
+.facility__filters button:hover,
+.facility__filters button:focus-visible {
+  border-color: var(--color-volt);
+}
+
+.facility__filters button.is-active {
+  background: var(--color-volt);
+  border-color: var(--color-volt);
+  color: var(--color-text-on-accent);
+}
+
+.bento-card.is-hidden {
+  display: none;
+}
