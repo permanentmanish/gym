@@ -174,3 +174,35 @@
   // than leaving a stale .is-invalid border after a failed attempt.
   input.addEventListener('input', clearInvalid);
 })();
+
+/**
+ * Peak Performance Gym — Facility Vibe Filter
+ * ---------------------------------------------------------------------------
+ * Filters the bento-grid cards by category. Uses a delegated click listener
+ * on the button group rather than one per button.
+ */
+(() => {
+  'use strict';
+
+  const filters = document.querySelector('.facility__filters');
+  const cards = document.querySelectorAll('.bento-card');
+  if (!filters || cards.length === 0) return;
+
+  filters.addEventListener('click', (event) => {
+    const button = event.target.closest('button');
+    if (!button) return;
+
+    const activeFilter = button.dataset.filter;
+
+    filters.querySelectorAll('button').forEach((btn) => {
+      const isActive = btn === button;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
+
+    cards.forEach((card) => {
+      const matches = activeFilter === 'all' || card.dataset.category === activeFilter;
+      card.classList.toggle('is-hidden', !matches);
+    });
+  });
+})();
