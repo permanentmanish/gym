@@ -6,7 +6,9 @@
 
 :root {
   color-scheme: dark;
-
+/* SYSTEM VARS */
+  --bottom-bar-height: max(72px, calc(64px + env(safe-area-inset-bottom)));
+   
   /* ---------------------------------------------------------------------
      COLOR — Backgrounds (dark hierarchy: void → surface → raised)
      --------------------------------------------------------------------- */
@@ -743,7 +745,9 @@ body.no-scroll::before {
    last section of content or the footer. Formula mirrors the bar itself:
    button height + its own top/bottom padding + its border. */
 body {
-  padding-bottom: calc(48px + (2 * var(--space-xs)) + 1px);
+  /* ---- Dynamic Bottom Bar Padding ---- */
+body {
+  padding-bottom: var(--bottom-bar-height);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -795,23 +799,34 @@ body {
   color: var(--color-text-muted);
 }
 
+/* ---- Hero Status Pulse (GPU Optimized) ---- */
 .status-dot {
   flex-shrink: 0;
+  position: relative;
   width: 8px;
   height: 8px;
   border-radius: var(--radius-full);
   background: var(--color-volt);
-  animation: hero-status-pulse 2s var(--ease-in-out) infinite;
 }
 
-/* No existing duration token fits a slow ambient pulse (they're all sized
-   for interaction feedback), so 2s is a deliberate one-off here. */
-@keyframes hero-status-pulse {
+.status-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  /* GPU-friendly animation */
+  animation: pulse-gpu 2s var(--ease-in-out) infinite;
+}
+
+@keyframes pulse-gpu {
   0%, 100% {
-    box-shadow: 0 0 0 0 transparent;
+    transform: scale(1);
+    opacity: 0.2;
   }
   50% {
-    box-shadow: var(--shadow-glow-volt);
+    transform: scale(3.5);
+    opacity: 0;
   }
 }
 
@@ -968,8 +983,10 @@ body {
   color: #ff4d4d;
 }
 
+/* ---- Form Error Focus State ---- */
 .hero__form-input.is-invalid:focus {
   box-shadow: 0 0 0 1px #ff4d4d;
+  outline-color: #ff4d4d; /* CRITICAL: Overrides the global volt-green focus */
 }
 
 /* Success state replacement block */
@@ -1072,7 +1089,15 @@ body {
   border: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   background: var(--color-bg-surface);
-  transition: border-color var(--duration-base) var(--ease-out);
+
+  /* Modern discrete transitions for display toggling */
+  transition: border-color var(--duration-base) var(--ease-out),
+              opacity var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out),
+              display var(--duration-base) var(--ease-out) allow-discrete;
+
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Mobile-only floor height for the featured card; once grid-auto-rows +
@@ -1185,4 +1210,14 @@ body {
 
 .bento-card.is-hidden {
   display: none;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Defines the starting state when an element is un-hidden */
+@starting-style {
+  .bento-card:not(.is-hidden) {
+    opacity: 0;
+    transform: scale(0.95);
+  }
 }
