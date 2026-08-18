@@ -1251,18 +1251,13 @@ body {
   }
 }
 
-@media (min-width: 1024px) {
-  .programs__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 /* ---- 2. Program card base ---- */
 
 .program-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
   gap: var(--space-xs);
   padding: var(--space-lg);
   background: var(--color-bg-raised);
@@ -1271,6 +1266,11 @@ body {
   transition: transform var(--duration-base) var(--ease-out),
               border-color var(--duration-base) var(--ease-out),
               box-shadow var(--duration-base) var(--ease-out);
+}
+
+.program-card .btn {
+  margin-top: auto;
+  width: 100%;
 }
 
 .program-card:hover,
