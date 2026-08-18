@@ -1382,3 +1382,126 @@ body {
   transform: translateY(-1px);
   box-shadow: var(--shadow-glow-volt);
 }
+
+/* ==========================================================================
+   COACHES SECTION
+   ========================================================================== */
+
+/* ---- 1. Layout & grid ---- */
+
+.coaches {
+  background: var(--color-bg-void);
+}
+
+.coaches__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.coaches__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .coaches__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- 2. Coach card base ---- */
+
+.coach-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  transition: transform var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
+}
+
+.coach-card:hover,
+.coach-card:focus-within {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ---- 3. Image ---- */
+
+.coach-card__img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+/* ---- 4. Content area ---- */
+
+.coach-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  flex-grow: 1;
+  padding: var(--space-md);
+}
+
+/* ---- 5. Typography & elements ---- */
+
+.coach-card h3 {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.coach-card__role {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-cyan);
+}
+
+.coach-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  list-style: none;
+  padding: 0;
+}
+
+.coach-card li {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.coach-card .btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+.btn--sm {
+  padding: var(--space-3xs) var(--space-sm);
+  font-size: var(--text-xs);
+}
+
+/* ---- 6. Motion & accessibility ---- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .coach-card:hover,
+  .coach-card:focus-within {
+    transform: translateY(-4px);
+  }
+
+  .coach-card:hover .coach-card__img,
+  .coach-card:focus-within .coach-card__img {
+    transform: scale(1.04);
+  }
+}
