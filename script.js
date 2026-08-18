@@ -209,3 +209,38 @@ focusable.unshift(toggle); // This forces the close button into the trap!
     });
   });
 })();
+
+/**
+ * Peak Performance Gym — Programs Filter
+ * ---------------------------------------------------------------------------
+ * Filters .program-card elements by category (data-category), triggered by
+ * a filter control inside #programs. Mirrors the Facility filter: delegated
+ * click listener, .is-hidden toggling, aria-pressed kept in sync.
+ *
+ * Dormant until the matching markup exists — see notes below the code.
+ */
+(() => {
+  'use strict';
+
+  const container = document.querySelector('#programs .programs__filters');
+  const cards = document.querySelectorAll('#programs .program-card');
+  if (!container || cards.length === 0) return;
+
+  container.addEventListener('click', (event) => {
+    const button = event.target.closest('button');
+    if (!button) return;
+
+    const activeFilter = button.dataset.filter;
+
+    container.querySelectorAll('button').forEach((btn) => {
+      const isActive = btn === button;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
+
+    cards.forEach((card) => {
+      const matches = activeFilter === 'all' || card.dataset.category === activeFilter;
+      card.classList.toggle('is-hidden', !matches);
+    });
+  });
+})();
