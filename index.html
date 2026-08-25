@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Peak Performance Gym — an elite strength and conditioning facility built for serious results, expert coaching, and premium equipment.">
+  <meta name="theme-color" content="#0a0a0c">
+  <meta name="color-scheme" content="dark">
+  <title>Peak Performance Gym | Elite Strength &amp; Conditioning</title>
+
+  <!-- Google Fonts: Inter (body) + Oswald (display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="/" class="brand" aria-label="Peak Performance Gym — home">
+        <span class="brand__mark">Peak <span class="brand__accent">Performance</span></span>
+      </a>
+
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open navigation menu"
+      >
+        <span class="nav-toggle__icon" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="mobile-menu" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="#programs" class="site-nav__link">Programs</a></li>
+          <li><a href="#coaches" class="site-nav__link">Coaches</a></li>
+          <li><a href="#membership" class="site-nav__link">Membership</a></li>
+          <li><a href="#facility" class="site-nav__link">Facility</a></li>
+        </ul>
+        <a href="#join" class="site-nav__cta">Claim 3-Day Pass</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+
+        <div class="hero__badge">
+          <span class="status-dot" aria-hidden="true"></span>
+          Pithoragarh's Premier 24/7 Athletic Facility
+        </div>
+
+        <h1 id="hero-title">Forging <span class="hero__title-accent">Elite Athletic</span> Performance</h1>
+
+        <p class="hero__lede">Custom-engineered equipment, expert coaching, and a high-energy environment built for serious results. No contracts. No excuses.</p>
+
+        <form class="hero__form" aria-label="Claim Free 3-Day Pass">
+          <div class="hero__form-group">
+            <label for="hero-phone" class="visually-hidden">Enter your phone number</label>
+            <input
+              type="tel"
+              id="hero-phone"
+              name="phone"
+              class="hero__form-input"
+              placeholder="Enter phone number..."
+              required
+              autocomplete="tel"
+              inputmode="tel"
+            >
+            <button type="submit" class="hero__form-submit">
+              Get 3-Day Pass
+              <svg class="hero__form-icon" aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+          <p class="hero__form-trust">Instant SMS confirmation • 100% Free • No commitment</p>
+        </form>
+
+        <div class="hero__stats">
+          <dl class="hero__stats-list">
+            <div class="hero__stat">
+              <dt>24/7</dt>
+              <dd>Access</dd>
+            </div>
+            <div class="hero__stat">
+              <dt>15+</dt>
+              <dd>Expert Trainers</dd>
+            </div>
+            <div class="hero__stat">
+              <dt>4.9★</dt>
+              <dd>Local Community Rating</dd>
+            </div>
+          </dl>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="facility section-padding" id="facility" aria-labelledby="facility-title">
+      <div class="container facility__inner">
+
+        <div class="section-header">
+          <span class="eyebrow">The Standard</span>
+          <h2 class="section-title" id="facility-title">Engineered for Excellence</h2>
+          <p class="section-lede">Stop waiting for squat racks. Our limited-membership model ensures you always have access to competition-grade equipment.</p>
+        </div>
+
+        <div class="facility__filters" aria-label="Facility categories">
+          <button type="button" class="is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="training" aria-pressed="false">Training</button>
+          <button type="button" data-filter="recovery" aria-pressed="false">Recovery</button>
+        </div>
+
+        <div class="bento-grid">
+
+          <article class="bento-card bento-card--featured" data-category="training">
+            <div class="bento-card__img-wrapper">
+              <img src="/api/placeholder/600/400" alt="Heavy deadlift platform with calibrated plates" class="bento-card__img" loading="lazy" width="600" height="400">
+            </div>
+            <div class="bento-card__content">
+              <h3>Competition Caliber</h3>
+              <p>Eleiko barbells, calibrated plates, and deadlift platforms.</p>
+            </div>
+          </article>
+
+          <article class="bento-card" data-category="training">
+            <div class="bento-card__img-wrapper">
+              <img src="/api/placeholder/600/400" alt="Green indoor turf track with a prowler sled" class="bento-card__img" loading="lazy" width="600" height="400">
+            </div>
+            <div class="bento-card__content">
+              <h3>Functional Turf</h3>
+              <p>30-meter sled track and agility zone.</p>
+            </div>
+          </article>
+
+          <article class="bento-card" data-category="recovery">
+            <div class="bento-card__img-wrapper">
+              <img src="/api/placeholder/600/400" alt="Modern cold plunge tub and wooden sauna" class="bento-card__img" loading="lazy" width="600" height="400">
+            </div>
+            <div class="bento-card__content">
+              <h3>Recovery Zone</h3>
+              <p>Cold plunges and infrared saunas to accelerate healing.</p>
+            </div>
+          </article>
+
+          <article class="bento-card bento-card--wide" data-category="training">
+            <div class="bento-card__img-wrapper">
+              <img src="/api/placeholder/600/400" alt="Wide angle view of spaced out squat racks" class="bento-card__img" loading="lazy" width="600" height="400">
+            </div>
+            <div class="bento-card__content">
+              <h3>Unrestricted Flow</h3>
+              <p>Spaced-out racks and open floor plans. Never bump elbows again.</p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="programs section-padding" id="programs" aria-labelledby="programs-title">
+      <div class="container programs__inner">
+
+        <div class="section-header">
+          <span class="eyebrow">Targeted Training</span>
+          <h2 class="section-title" id="programs-title">Built for Specific Outcomes</h2>
+          <p class="section-lede">Whether your focus is raw strength, explosive athleticism, or body re-composition, our structured tracks deliver maximum efficiency.</p>
+        </div>
+
+        <div class="programs__grid">
+
+          <article class="program-card">
+            <span class="program-card__tag">Strength</span>
+            <h3>Hypertrophy &amp; Power</h3>
+            <p>Barbell-focused periodization designed to maximize muscle mass and absolute strength base.</p>
+            <ul>
+              <li>5-Day Split Architecture</li>
+              <li>Access to Specialty Bars</li>
+              <li>Velocity-Based Tracking</li>
+            </ul>
+            <a href="#join" class="btn btn--outline">View Blueprint</a>
+          </article>
+
+          <article class="program-card">
+            <span class="program-card__tag">Performance</span>
+            <h3>Athletic Conditioning</h3>
+            <p>High-output energy system development combining sled work, plyometrics, and sprint intervals.</p>
+            <ul>
+              <li>Turf Track Workouts</li>
+              <li>Heart-Rate Zone Monitoring</li>
+              <li>Agility &amp; Explosiveness</li>
+            </ul>
+            <a href="#join" class="btn btn--outline">View Blueprint</a>
+          </article>
+
+          <article class="program-card">
+            <span class="program-card__tag">Endurance</span>
+            <h3>Engine &amp; Stamina</h3>
+            <p>Low-impact, high-volume aerobic capacity training using Concept2 rowers, SkiErgs, and Echo bikes.</p>
+            <ul>
+              <li>VO2 Max Protocols</li>
+              <li>Low-Stress Joint Loading</li>
+              <li>Group Energy Dynamics</li>
+            </ul>
+            <a href="#join" class="btn btn--outline">View Blueprint</a>
+          </article>
+
+          <article class="program-card program-card--featured">
+            <span class="program-card__tag program-card__tag--accent">1-on-1 Dedicated</span>
+            <h3>Elite Personal Coaching</h3>
+            <p>Customized programming, direct accountability, and daily nutrition tracking from master trainers.</p>
+            <ul>
+              <li>Biometric Assessment</li>
+              <li>Custom Nutrition Blueprint</li>
+              <li>24/7 Direct Coach Messaging</li>
+            </ul>
+            <a href="#join" class="btn btn--primary">Apply for Coaching</a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="coaches section-padding" id="coaches" aria-labelledby="coaches-title">
+      <div class="container coaches__inner">
+
+        <div class="section-header">
+          <span class="eyebrow">Expert Guidance</span>
+          <h2 class="section-title" id="coaches-title">Led by Industry Specialists</h2>
+          <p class="section-lede">Our coaches aren't just influencers—they hold master degrees, elite certifications, and proven track records in human performance.</p>
+        </div>
+
+        <div class="coaches__grid">
+
+          <article class="coach-card">
+            <img src="/api/placeholder/400/500" alt="Coach Marcus Vance demonstrating a deadlift" class="coach-card__img" loading="lazy" width="400" height="500">
+            <div class="coach-card__content">
+              <h3>Marcus Vance</h3>
+              <span class="coach-card__role">Head Strength &amp; Power Specialist</span>
+              <ul>
+                <li>CSCS® Certified</li>
+                <li>10+ Yrs Elite Athletes</li>
+              </ul>
+              <a href="#join" class="btn btn--outline btn--sm">Book Session</a>
+            </div>
+          </article>
+
+          <article class="coach-card">
+            <img src="/api/placeholder/400/500" alt="Coach Elena Rostova during track drills" class="coach-card__img" loading="lazy" width="400" height="500">
+            <div class="coach-card__content">
+              <h3>Elena Rostova</h3>
+              <span class="coach-card__role">Director of Athletic Performance</span>
+              <ul>
+                <li>M.S. Exercise Science</li>
+                <li>Olympic Track Coach</li>
+              </ul>
+              <a href="#join" class="btn btn--outline btn--sm">Book Session</a>
+            </div>
+          </article>
+
+          <article class="coach-card">
+            <img src="/api/placeholder/400/500" alt="Coach David Chen guiding a mobility session" class="coach-card__img" loading="lazy" width="400" height="500">
+            <div class="coach-card__content">
+              <h3>David Chen</h3>
+              <span class="coach-card__role">Metabolic Conditioning &amp; Recovery Lead</span>
+              <ul>
+                <li>EXOS Performance Specialist</li>
+                <li>FRC® Mobility Specialist</li>
+              </ul>
+              <a href="#join" class="btn btn--outline btn--sm">Book Session</a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="pricing section-padding" id="pricing" aria-labelledby="pricing-title">
+      <div class="container pricing__inner">
+
+        <div class="section-header">
+          <span class="eyebrow">Membership</span>
+          <h2 class="section-title" id="pricing-title">Simple, Transparent Pricing</h2>
+          <p class="section-lede">No contracts, no hidden fees. Pick the access level that matches your training. (Placeholder tiers &amp; prices — swap in your real numbers.)</p>
+        </div>
+
+        <div class="pricing__toggle">
+          <span class="pricing__toggle-label is-active" data-period="monthly">Monthly</span>
+          <button type="button" class="pricing__switch" id="pricing-switch" role="switch" aria-checked="false" aria-label="Switch between monthly and yearly billing">
+            <span class="pricing__switch-thumb" aria-hidden="true"></span>
+          </button>
+          <span class="pricing__toggle-label" data-period="yearly">Yearly <span class="pricing__toggle-badge">Save 15%</span></span>
+        </div>
+
+        <div class="pricing__grid">
+
+          <article class="pricing-card" data-price-monthly="69">
+            <h3>Foundation</h3>
+            <p class="pricing-card__desc">24/7 facility access and open-floor training.</p>
+            <p class="pricing-card__price">
+              <span class="pricing-card__amount">$69</span><span class="pricing-card__period">/mo</span>
+            </p>
+            <ul>
+              <li>24/7 Facility Access</li>
+              <li>Open Floor Equipment</li>
+              <li>Locker Room &amp; Showers</li>
+            </ul>
+            <a href="#join" class="btn btn--outline">Get Started</a>
+          </article>
+
+          <article class="pricing-card pricing-card--featured" data-price-monthly="99">
+            <span class="pricing-card__tag pricing-card__tag--accent">Most Popular</span>
+            <h3>Performance</h3>
+            <p class="pricing-card__desc">Everything in Foundation, plus structured programming.</p>
+            <p class="pricing-card__price">
+              <span class="pricing-card__amount">$99</span><span class="pricing-card__period">/mo</span>
+            </p>
+            <ul>
+              <li>Everything in Foundation</li>
+              <li>Access to All Program Tracks</li>
+              <li>Monthly Progress Check-In</li>
+            </ul>
+            <a href="#join" class="btn btn--primary">Get Started</a>
+          </article>
+
+          <article class="pricing-card" data-price-monthly="179">
+            <h3>Elite</h3>
+            <p class="pricing-card__desc">Full access plus 1-on-1 coaching and nutrition support.</p>
+            <p class="pricing-card__price">
+              <span class="pricing-card__amount">$179</span><span class="pricing-card__period">/mo</span>
+            </p>
+            <ul>
+              <li>Everything in Performance</li>
+              <li>Weekly 1-on-1 Coaching</li>
+              <li>Custom Nutrition Blueprint</li>
+            </ul>
+            <a href="#join" class="btn btn--outline">Get Started</a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="contact section-padding" id="contact" aria-labelledby="contact-title">
+      <div class="container contact__inner">
+
+        <div class="section-header">
+          <span class="eyebrow">Get In Touch</span>
+          <h2 class="section-title" id="contact-title">Questions? Ask Away</h2>
+          <p class="section-lede">Send a message and a member of our team will get back to you within one business day.</p>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="contact-form__field">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" class="contact-form__input" aria-describedby="contact-name-error" required>
+            <p class="contact-form__error" id="contact-name-error" role="alert"></p>
+          </div>
+
+          <div class="contact-form__field">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" class="contact-form__input" aria-describedby="contact-email-error" required>
+            <p class="contact-form__error" id="contact-email-error" role="alert"></p>
+          </div>
+
+          <div class="contact-form__field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" class="contact-form__input" rows="4" aria-describedby="contact-message-error" required></textarea>
+            <p class="contact-form__error" id="contact-message-error" role="alert"></p>
+          </div>
+
+          <button type="submit" class="btn btn--primary contact-form__submit">Send Message</button>
+        </form>
+
+      </div>
+    </section>
+
+    <!-- Additional sections (membership perks, testimonials, etc.)
+         are added in subsequent build passes. -->
+
+    <aside class="mobile-bottom-bar" aria-label="Quick actions">
+      <a href="#join" class="mobile-bottom-bar__primary">Claim 3-Day Pass</a>
+      <a href="#schedule" class="mobile-bottom-bar__secondary">Schedule</a>
+    </aside>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Peak Performance Gym. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
