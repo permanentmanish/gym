@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare PulseFit membership plans in Pithoragarh — simple gym-access options with demo pricing, so you can find the plan that fits your routine.">
+  <meta name="theme-color" content="#0C0D0F">
+  <title>Membership — PulseFit Fitness</title>
+
+  <!-- Fonts: Oswald (display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Oswald:wght@500;600;700&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="logo" href="index.html">
+        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <rect class="logo-mark-bg" width="32" height="32" rx="8"></rect>
+          <rect class="logo-mark-plus" x="13.5" y="6" width="5" height="20" rx="2.5"></rect>
+          <rect class="logo-mark-plus" x="6" y="13.5" width="20" height="5" rx="2.5"></rect>
+        </svg>
+        PulseFit
+      </a>
+
+      <!-- Desktop navigation: hidden on mobile, shown at the desktop breakpoint -->
+      <nav class="nav-desktop" aria-label="Primary">
+        <ul>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="membership.html" aria-current="page">Membership</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="visit.html">Visit Us</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--primary nav-cta" href="trial.html">Start Free Trial</a>
+
+      <!-- Mobile hamburger toggle: hidden at the desktop breakpoint -->
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Open menu"
+      >
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <nav class="mobile-menu-nav" aria-label="Mobile">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="membership.html" aria-current="page">Membership</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="visit.html">Visit Us</a></li>
+        </ul>
+        <a class="btn btn--primary btn--block" href="trial.html">Start Free Trial</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- Compact internal-page hero: same pattern as programs.html -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <p class="eyebrow">Membership</p>
+          <h1 class="hero-heading">Choose a plan that fits your routine.</h1>
+          <p class="hero-text">Simple membership options for different training needs. Start with what works for you and adjust as your routine grows.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn--primary" href="trial.html">Start Free Trial</a>
+            <a class="btn btn--secondary" href="programs.html">View Programs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership Plans: reuses the homepage's membership-card pattern exactly -->
+    <section class="section bg-surface" id="plans">
+      <div class="container">
+        <div class="section-header">
+          <h2>Simple Plans. Clear Benefits.</h2>
+        </div>
+
+        <div class="card-grid">
+          <div class="card membership-card">
+            <span class="tag-pill">Beginner Friendly</span>
+            <h3>Gym Access — Cardio Excluded</h3>
+            <p class="membership-fit">Access to the gym's non-cardio equipment. Cardio equipment is not included.</p>
+            <div class="price-row">
+              <span class="price">₹700</span>
+              <span class="price-period">/ month</span>
+            </div>
+            <div class="price-row">
+              <span class="price">₹2,000</span>
+              <span class="price-period">/ quarter</span>
+            </div>
+            <div class="price-row">
+              <span class="price">₹7,700</span>
+              <span class="price-period">/ year</span>
+            </div>
+          </div>
+
+          <div class="card membership-card">
+            <h3>Full Gym Access</h3>
+            <p class="membership-fit">Full gym access, including cardio equipment.</p>
+            <div class="price-row">
+              <span class="price">₹1,000</span>
+              <span class="price-period">/ month</span>
+            </div>
+            <div class="price-row">
+              <span class="price">₹2,800</span>
+              <span class="price-period">/ quarter</span>
+              <span class="tag-pill">Most Popular</span>
+            </div>
+            <div class="price-row">
+              <span class="price">₹10,000</span>
+              <span class="price-period">/ year</span>
+              <span class="tag-pill">Best Value</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plan Comparison: a real table, but sized so it never needs to scroll —
+         narrow icon columns + a wrapping feature column, checked at 320px. -->
+    <section class="section" id="compare">
+      <div class="container">
+        <div class="section-header">
+          <h2>Compare Plans</h2>
+          <p class="section-lead">A quick side-by-side of what's included.</p>
+        </div>
+
+        <div class="compare-table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col"><span class="sr-only">Feature</span></th>
+                <th scope="col">Gym Access — Cardio Excluded</th>
+                <th scope="col">Full Gym Access</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Gym access</th>
+                <td><span class="compare-yes" aria-label="Included">✓</span></td>
+                <td><span class="compare-yes" aria-label="Included">✓</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Cardio equipment</th>
+                <td><span class="compare-no" aria-label="Not included">—</span></td>
+                <td><span class="compare-yes" aria-label="Included">✓</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Equipment orientation</th>
+                <td><span class="compare-yes" aria-label="Included">✓</span></td>
+                <td><span class="compare-yes" aria-label="Included">✓</span></td>
+              </tr>
+              <tr>
+                <th scope="row">General trainer guidance</th>
+                <td><span class="compare-yes" aria-label="Included">✓</span></td>
+                <td><span class="compare-yes" aria-label="Included">✓</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Personal training</th>
+                <td><span class="compare-no" aria-label="Not included">—</span></td>
+                <td><span class="compare-no" aria-label="Not included">—</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Group classes</th>
+                <td><span class="compare-no" aria-label="Not offered">—</span></td>
+                <td><span class="compare-no" aria-label="Not offered">—</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Which Plan Should I Choose: reuses the plain card-grid pattern -->
+    <section class="section bg-surface" id="which-plan">
+      <div class="container">
+        <div class="section-header">
+          <h2>Not Sure Which Plan Is Right for You?</h2>
+        </div>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3>Just Starting</h3>
+            <p>Choose Gym Access — Cardio Excluded if you mainly want simple, affordable access to get going.</p>
+          </div>
+          <div class="card">
+            <h3>Want Cardio Too</h3>
+            <p>Choose Full Gym Access if you also want cardio equipment included.</p>
+          </div>
+          <div class="card">
+            <h3>Want More Support</h3>
+            <p>Add a Personal Training package alongside either plan if you want one-to-one coaching.</p>
+          </div>
+        </div>
+
+        <p class="section-footer-note">Still unsure? Start with a free trial and talk to us before deciding.</p>
+
+        <div class="section-footer-action">
+          <a class="btn btn--primary" href="trial.html">Start Free Trial</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Membership Notes: small, unobtrusive disclosure -->
+    <section class="section" id="membership-notes">
+      <div class="container">
+        <p class="membership-note">Prices shown are demo/sample prices. Actual membership terms may vary. Ask the gym about current availability and pricing.</p>
+      </div>
+    </section>
+
+    <!-- Final CTA: reuses the homepage's closing cta-band pattern -->
+    <section class="section cta-band bg-surface">
+      <div class="container cta-band-inner">
+        <h2>Ready to Make Training Part of Your Routine?</h2>
+        <p>Start with a free trial and find the plan that fits you.</p>
+
+        <div class="cta-band-actions">
+          <a class="btn btn--primary" href="trial.html">Start Free Trial</a>
+          <a class="btn btn--secondary" href="https://wa.me/919000000000" target="_blank" rel="noopener">WhatsApp Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <rect class="logo-mark-bg" width="32" height="32" rx="8"></rect>
+            <rect class="logo-mark-plus" x="13.5" y="6" width="5" height="20" rx="2.5"></rect>
+            <rect class="logo-mark-plus" x="6" y="13.5" width="20" height="5" rx="2.5"></rect>
+          </svg>
+          PulseFit
+        </a>
+        <p>A modern, beginner-friendly gym in Pithoragarh, Uttarakhand.</p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="membership.html" aria-current="page">Membership</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="visit.html">Visit Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h3>Visit</h3>
+        <ul>
+          <li>Gandhi Chowk, Pithoragarh, Uttarakhand</li>
+          <li>Monday–Saturday: 5:00 AM – 10:00 PM · Sunday: Closed</li>
+          <li><a href="https://wa.me/919000000000" target="_blank" rel="noopener">WhatsApp Us (Demo)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 PulseFit Fitness — Pithoragarh, Uttarakhand.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js" defer></script>
+</body>
+</html>
